@@ -110,6 +110,9 @@ def BIC_input_graph(X, g, reg_type='LR', score_type='BIC'):
         else:
             RSSi_2 = RSSi
 
+        if RSSi_2 <= 0:
+            RSSi_2 = 1e-8
+
         if reg_type == 'GPR':
             RSS_ls.append(RSSi + 1.0)
         else:
