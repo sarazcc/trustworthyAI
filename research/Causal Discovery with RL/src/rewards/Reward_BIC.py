@@ -551,6 +551,9 @@ class get_Reward(object):
             RSSi = np.sum(np.square(y_err))
             # cache_write("y_err", y_err)
 
+            if RSSi <= 0:
+                RSSi = 1e-8
+
             # if the regresors include the true parents, GPR would result in very samll values, e.g., 10^-13
             # so we add 1.0, which does not affect the monotoniticy of the score
             # if self.reg_type == 'GPR': TODO: CHANGE IT BACK
